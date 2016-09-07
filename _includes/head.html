@@ -12,8 +12,10 @@
 
 
 <section class="page-header">
-	<link rel="stylesheet" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="stylesheet" type="text/css" href="/css/nav.css" media="screen">
+
+	<link rel="stylesheet" href="{{ page.url | replace:'index.html','' | prepend: site.github.url }}">{{ page.title }}
+	<!--	{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" -->
+  <link rel="stylesheet" type="text/css" href="{{ site.github.url }}/css/nav.css" media="screen">
 	<!-- <h1 class="project-name">Econ5170</h1>
 	 -->
 	 <h1>Econ5170: Computational Methods in Economics</h1>
