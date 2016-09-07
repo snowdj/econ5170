@@ -1,0 +1,33 @@
+<!-- on the second top, only next to "head" -->
+
+
+<style>
+img {
+    float: left;
+    margin: 10px 10px 10px;
+}
+
+</style>
+
+<aside>
+	<div class="menu">
+		<nav>
+			<ul>
+        <li> <a href="/index.html"> Home </a> </li>
+				{% for page in site.pages %} {% if page.title %}
+				<li>
+          <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+				{% endif %} {% endfor %}
+			</ul>
+			</li>
+			</ul>
+		</nav>
+	</div>
+</aside>
+
+
+<header>
+	<!-- <h1><a href="{{ site.url}}{{ site.baseurl }}">{{ site.title }}</a></h1> -->
+  <!--  <h1> {{ site.title }} </h1> the big title of the page -->
+  <!--  <h1> Econ5121A: Econometric Theory and Applications </h1> -->
+</header>

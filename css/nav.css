@@ -1,0 +1,31 @@
+nav ul{
+  list-style: none;
+}
+
+nav li{
+  color:  #39ac39;
+  display: inline;
+}
+
+nav a{
+    font:normal 20px Georgia, serif;
+	margin: 0 10px;
+}
+
+nav a:visited, nav a:link {
+	text-decoration:none;
+	color:#39ac39;
+}
+
+nav a:hover {
+	text-decoration:underline;
+	color:#39ac39;
+}
+
+#wrapper {
+  width: 1000px;
+  margin: 0 auto;
+
+	border-left:1px solid #f0e9eb;
+	border-right:1px solid #f0e9eb;
+}
