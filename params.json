@@ -1,6 +1,0 @@
-{
-  "name": "Econ5170",
-  "tagline": "Econ 5170 @CUHK: Computational Methods in Economics (2016 Spring)",
-  "body": "The Chinese University of Hong Kong\r\n\r\n## Econ5170:  Computational Methods in Economics (2016 Spring)\r\n\r\nNaijia Guo and Zhentao Shi co-teach Econ5170.\r\n\r\nZhentao covers the following topics. This README file will be updated as the course progresses. Code scripts will be provided.\r\n\r\n\r\n#### Outline\r\n* Lecture 1: Basic R\r\n* Lecture 2: Advanced R\r\n* Lecture 3: Monte Carlo Simulations\r\n* Lecture 4: Numerical and Statistical Integrations\r\n* Lecture 5: Numerical Optimization\r\n\r\n#### Programming Languages\r\n* *R* is the main language for demonstration.\r\n* *Julia* will also be mentioned.\r\n\r\n#### Software Installation\r\n* **MUST**: [R](http://www.r-project.org/) and [R-studio](http://www.rstudio.com/)\r\n* **Recommended**: [Julia](http://julialang.org/downloads/), [Atom](https://atom.io/) and [Git](http://git-scm.com/)\r\n* For Windows users, [PuTTY](http://www.putty.org/) and [WinSCP](http://winscp.net/eng/download.php) help access remote servers.\r\n",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}

@@ -8,11 +8,9 @@
 
 	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
-	<link rel="stylesheet" href="{{ "/css/github-light.css" | prepend: site.baseurl }}">
-
+	<link rel="stylesheet" href="{{ "/css/nav.css" | prepend: site.baseurl }}">
 
 <section class="page-header">
-
 	<link rel="stylesheet" href="{{ page.url | replace:'index.html','' | prepend: site.github.url }}">{{ page.title }}
 	<!--	{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" -->
   <link rel="stylesheet" type="text/css" href="{{ site.github.url }}/css/nav.css" media="screen">
