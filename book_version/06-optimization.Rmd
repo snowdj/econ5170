@@ -35,7 +35,7 @@ The essential idea for optimizing a twice-differentiable objective function is t
 A necessary condition for optimization is the first-order condition
 $s(\theta) = \partial f(\theta) / \partial \theta = 0$.
 
-At an initial trial value $\theta_0$, if $s(\theta_0) \neq 0$, the search is updated by 
+At an initial trial value $\theta_0$, if $s(\theta_0) \neq 0$, the search is updated by
 $$
 \theta_{t+1} = \theta_{t} -  \left( H(\theta_t)  \right)^{-1}  s(\theta_t)
 $$
@@ -56,7 +56,7 @@ whether a root to $s(\theta)$ is associated with a minimizer, a maximizer or a s
 If there are multiple minima, we compare the value at each to decide the
 global minimum.
 
-It is clear that Newton's method requires 
+It is clear that Newton's method requires
 computation of the gradient $s(\theta)$ and the Hessian $H(\theta)$.
 Newton's method converges at quadratic rate, which is fast.
 
@@ -112,12 +112,12 @@ $$
 and verify that the Hessian
 $$
 H(\beta) = \frac{\partial^2 \ell(\beta)}{\partial \beta \partial \beta'} =
--\sum_{i=1}^n \exp(x_i'\beta)x_i x_i' 
+-\sum_{i=1}^n \exp(x_i'\beta)x_i x_i'
 $$
 is negative definite. Therefore, $\ell(\beta)$ is strictly concave
 in $\beta$.
 
-In operational reserach, the default optimization is minimization, although 
+In operational reserach, the default optimization is minimization, although
 economics has utility maximization and cost minimization and
 statistics has maximum likelihood estimation and minimal least squared estimation.
 To follow this convention in operational research, here we formulate the *negative* log-likelihood.
@@ -263,8 +263,12 @@ print( res_BFGS )
 ## Contrained Optimization
 
 * `optimx` can handle simple box-constrained problems.
-* `constrOptim` can handle linear constrained problems.
 * Some algorithms in `nloptr`, for example, `NLOPT_LD_SLSQP`, can handle nonlinear constrained problems.
+
+
+* New packages to be elaborated next year:
+[ROI](https://cran.r-project.org/web/packages/ROI/index.html) General R optimization infrastructure
+
 
 ## Convex Optimization
 
@@ -277,8 +281,25 @@ referred to @boyd2004convex for an accessible comprehensive treatment. They clai
 **Example**
 
 * linear regression model MLE
+
+
+Normal MLE. The (negative) log-likelihood is
+$$
+\ell (\beta, \sigma) = \log \sigma + \frac{1}{\sigma^2}\sum_{i=1}^n (y_i - x_i' \beta)^2
+$$
+This is not a convex problem, because $\log \sigma$ is concave. But if we reparameterize the criterion function by $\gamma = 1/\sigma$ and $\alpha = \beta / \sigma$, then
+$$
+\ell (\alpha, \gamma) = -\log \gamma + \sum_{i=1}^n (\gamma y_i - x_i' \alpha)^2
+$$
+This function in convex in $\alpha, \gamma$.
+
+Indeed, many MLE estimators in the first-year econometrics are convex.
+
+
+
 * Lasso [@su2016identifying]
 * Relaxed empirical likelihood [@shi2016econometric].
+* A companion paper can be found here [@gao2018two].
 
 A class of common convex optimization can be reliably implemented in `R`.
 [`Rmosek`](http://rmosek.r-forge.r-project.org/) is an interface in `R` to access `Mosek`.
@@ -297,27 +318,15 @@ lo1$bc <- rbind(blc = c(30,15,-Inf),
                 buc = c(30,Inf,25))
 lo1$bx <- rbind(blx = c(0,0,0,0),
                 bux = c(Inf,10,Inf,Inf))
-r <- Rmosek::mosek(lo1) # as today (Feb 10, 2019), the latest version of 
+r <- Rmosek::mosek(lo1) # as today (Feb 10, 2019), the latest version of
 # Rmosek is not functional. I can make it work on R3.4, but not the latest R3.5
 ```
 
-A survey and demonstration paper can be found here [@gao2018two].
 
 
-## Stochastic Gradient Descent
 
-When the sample size is huge and the number of parameters is also big, 
-the evaluation of the gradient can be prohibitively expensive. 
-Stochastic Gradient Descent (SGD) uses a small batch of the sample 
-to evaluate the gradient in each iteration. It can significantly save
-computational time. In complex optimization problems such as 
-training a neural network, SGD is the de facto optimization procedure.
-
-However, SGD involves tuning parameters (say, the batch size and the learning rate)
-that can dramatically affect 
-the outcome, in particular in nonlinear problems. 
-Careful experiments must be carried out before any serious implementation.
-
+* Convex solvers: CLEPX, MOSEK, Gurubi, (Commercial)   ECOS, SDPT3, (free)
+* `CVXR` [@fu2018cvxr] is a convex modeling language in R.
 
 
 ## References
