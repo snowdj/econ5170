@@ -4,6 +4,9 @@
 *_cache
 *_files
 
+## shiny R
+*shinyapps.io*
+
 
 ## SWP
 *.bak
@@ -15,6 +18,10 @@
 __packages
 *.rdb
 *.rdx
+_book/
+
+## Pandoc
+*.md
 
 ## Jupyter
 .ipynb_checkpoints
@@ -150,3 +157,5 @@ Lecture_advanced_R/
 Lecture_simulation/
 Lec_bootstrap/
 book_version/AAPL.csv
+packrat/lib*/
+packrat/src*/
